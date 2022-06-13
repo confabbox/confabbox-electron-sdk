@@ -1,0 +1,53 @@
+{
+  "name": "electron-sdk",
+  "version": "3.0.8",
+  "description": "Utilities for confabbox-electron project",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "TESTING=true mocha",
+    "validate": "npm ls",
+    "install": "node-gyp-build",
+    "prebuild-darwin-universal": "prebuildify -t 16.0.0 --napi --strip --arch x64+arm64",
+    "prebuild-darwin-x64": "prebuildify -t 16.0.0 --napi --strip --arch x64 && lipo -remove arm64 prebuilds/darwin-x64/node.napi.node -output prebuilds/darwin-x64/node.napi.node",
+    "prebuild-linux-x64": "prebuildify -t 16.0.0 --napi --strip",
+    "prebuild-win32-x86": "prebuildify -t 16.0.0 --napi --strip",
+    "prebuild-win32-x64": "prebuildify -t 16.0.0 --napi --strip"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": "https://github.com/confabbox/confabbox-electron-sdk",
+  "keywords": [
+    "jingle",
+    "webrtc",
+    "xmpp",
+    "electron",
+    "confabbox",
+    "utils"
+  ],
+  "author": "",
+  "readmeFilename": "README.md",
+  "license": "Apache-2.0",
+  "gypfile": true,
+  "binary": {
+    "napi_versions": [
+      3
+    ]
+  },
+  "dependencies": {
+    "logger": "github:confabbox/logger",
+    "robotjs": "github:confabbox/robotjs",
+    "electron-store": "^8.0.1",
+    "node-addon-api": "^4.2.0",
+    "node-gyp-build": "^4.3.0",
+    "postis": "^2.2.0"
+  },
+  "devDependencies": {
+    "eslint": ">=3",
+    "eslint-plugin-jsdoc": "*",
+    "mocha": "^9.1.3",
+    "prebuildify": "^5.0.0",
+    "precommit-hook": "3.0.0"
+  }
+}
