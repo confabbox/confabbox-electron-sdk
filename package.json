@@ -39,7 +39,7 @@
     "logger": "github:confabbox/logger",
     "robotjs": "github:confabbox/robotjs",
     "electron-store": "^8.0.1",
-    "node-addon-api": "^4.2.0",
+    "node-addon-api": "^5.1.0",
     "node-gyp-build": "^4.3.0",
     "postis": "^2.2.0"
   },
